@@ -94,6 +94,8 @@ html {
 body {
   font-family: 'Thmanyah Sans', sans-serif;
   direction: rtl;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 h1,

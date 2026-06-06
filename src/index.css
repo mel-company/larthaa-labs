@@ -80,6 +80,17 @@
   font-display: swap;
 }
 
+:root {
+  --brand-cyan: #17B6C4;
+  --brand-cyan-light: #E0F7FA;
+  --brand-cyan-glow: #22BAC4;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 body {
   font-family: 'Thmanyah Sans', sans-serif;
   direction: rtl;
@@ -100,7 +111,7 @@ p {
   font-feature-settings: 'swsh' on, 'salt' on;
 }
 
-header h1 .linear {
+.linear {
   background: linear-gradient(90deg, #03B0FF 0%, #1B53E2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

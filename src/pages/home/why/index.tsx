@@ -189,7 +189,7 @@ const WaveGraphic = () => (
 
 const WhySection = () => {
     return (
-        <section className="relative overflow-hidden bg-linear-to-b from-[#EAF5FD] via-[#F8FBFF] to-white px-6 pt-16 pb-28">
+        <section className="relative overflow-hidden bg-linear-to-b from-[#EAF5FD] via-[#F8FBFF] to-white pt-16 pb-28">
             <div className="pointer-events-none absolute inset-0">
                 <motion.div
                     animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
@@ -253,7 +253,7 @@ const WhySection = () => {
             </div>
 
             {/* Desktop */}
-            <div className="relative mx-auto mt-20 hidden h-[420px] w-full max-w-6xl md:block">
+            <div className="relative mx-auto mt-20 hidden h-[420px] w-full md:block">
                 <WaveGraphic />
 
                 {points.map((point) => (

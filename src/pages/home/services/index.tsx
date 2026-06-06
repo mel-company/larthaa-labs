@@ -73,7 +73,7 @@ const ServicesSection = () => {
             <div className="pointer-events-none absolute -right-32 top-1/4 h-96 w-96 rounded-full bg-[#03B0FF]/10 blur-3xl" />
             <div className="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#1B53E2]/8 blur-3xl" />
 
-            <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-14">
+            <div className="relative mx-auto flex flex-col items-center gap-14">
                 <div className="flex flex-col items-center gap-4 text-center">
                     <h3 className="text-3xl font-bold text-[#070C39]">خدماتنا</h3>
                     <Diamonds />

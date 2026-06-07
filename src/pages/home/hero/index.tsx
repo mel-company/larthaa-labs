@@ -74,18 +74,18 @@ const FadeIn = ({ children, delay, className = "" }: { children: React.ReactNode
 
 const Content = () => {
     return <div className="flex flex-col relative items-center justify-center gap-8 z-20 text-center text-[#070C39]">
-        <FadeIn delay={1200}>
+        <FadeIn delay={1200} className="z-20">
             <Badge />
         </FadeIn>
         <h1 className="text-8xl font-serif leading-snug font-bold">
 
             <span className="font-normal">
-                <AnimatedWord text="حلـــــول" delay={0} />
+                <AnimatedWord text="حلـــــول" delay={0} />{" "}
                 <AnimatedWord text="برمجية" delay={200} />
             </span><br />
-            <AnimatedWord text="تَصنع" delay={400} />
-            <AnimatedWord text="فرقـاً" delay={600} />
-            <AnimatedWord text="حقيقيـاً" delay={800} className="linear" />
+            <AnimatedWord text="تَصنع" delay={400} />{" "}
+            <AnimatedWord text="فرقـاً" delay={600} />{" "}
+            <AnimatedWord text="حقيقيـاً" delay={800} className="linear" />{" "}
             <AnimatedWord text="لأعمالك" delay={1000} />
         </h1>
         <FadeIn delay={1400}>

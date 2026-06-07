@@ -1,9 +1,9 @@
 import Logo from "@/components/layout/Logo"
 
 const tags = [
-    { label: "تصميم وتطوير المواقع", rotate: "rotate-[6deg]", x: "translate-x-4" },
-    { label: "إنشاء التطبيقات", rotate: "-rotate-[4deg]", x: "-translate-x-1" },
-    { label: "أي نظام ببالك", rotate: "rotate-[5deg]", x: "translate-x-6" },
+    { label: "تصميم وتطوير المواقع", rotate: "-rotate-[6deg]", x: "translate-x-4" },
+    { label: "إنشـــــاء التـــــطبيقات", rotate: "rotate-[6deg]", x: "translate-x-16" },
+    { label: "أي نظام أبالك", rotate: "-rotate-[8deg]", x: "-translate-x-4" },
 ]
 
 const Diamonds = () => (
@@ -27,11 +27,11 @@ const Tag = ({
     rotate: string
     x: string
 }) => (
-    <div
-        className={`whitespace-nowrap rounded-2xl border border-[#93C1F5]/60 bg-[#EEF6FC] px-6 py-3 text-lg font-medium text-[#070C39] ${rotate} ${x}`}
+    <p
+        className={`whitespace-nowrap flex  items-center justify-center gap-2 rounded-2xl border border-[#93C1F5]/60 bg-[#1B53E2]/5 backdrop-blur-sm px-5 py-3 text-4xl text-[#070C39] ${rotate} ${x}`}
     >
-        {label}
-    </div>
+        {label} <div className="min-h-2.5 w-2.5 min-w-2.5 aspect-square rounded bg-[#1B53E2]" />
+    </p>
 )
 
 const CompanySection = () => {
@@ -42,8 +42,8 @@ const CompanySection = () => {
         >
             <div className="mx-auto flex max-w-5xl flex-col items-center gap-14 text-center">
                 <div className="flex flex-col items-center gap-4">
-                    <h3 className="text-3xl font-bold text-[#070C39]">من نحن</h3>
-                    <Diamonds />
+                    <p className="text-3xl font-bold text-[#070C39]">من نحن</p>
+                    <img src="/star-list.svg" />
                 </div>
 
                 <h2 className="text-6xl font-serif font-bold leading-tight text-[#070C39] md:text-7xl">
@@ -69,7 +69,7 @@ const CompanySection = () => {
                     </div>
                 </div>
 
-                <p className="max-w-4xl text-xl leading-relaxed text-[#070C39]">
+                <p className="max-w-5xl text-2xl leading-relaxed text-slate-600">
                     نساعد الشركات على تحويل أفكارها إلى حلول تقنية عملية، سهلة
                     الاستخدام، وقابلة للتوسع. نركز على فهم احتياج العميل أولاً،
                     ثم نبني حلولاً تجمع بين الأداء، التصميم، الأمان، وتجربة

@@ -113,8 +113,15 @@ p {
   font-feature-settings: 'swsh' on, 'salt' on;
 }
 
-.linear {
+header .linear {
   background: linear-gradient(90deg, #03B0FF 0%, #1B53E2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.linear {
+  background: linear-gradient(90deg, #20C3CD 0%, #1B53E2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -1,9 +1,8 @@
-import logoSrc from "@/assets/Group.png"
 
-const Logo = ({ className = "h-9 w-9" }: { className?: string }) => {
+const Logo = ({ className = "h-9 w-9", text }: { className?: string; text?: boolean }) => {
     return (
         <img
-            src={logoSrc}
+            src={text ? "/logo-text.svg" : "/logo.svg"}
             alt="لارثا لابس"
             className={`object-contain ${className}`}
 

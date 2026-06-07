@@ -53,23 +53,24 @@ const CompanySection = () => {
                         ))}
                     </div>
 
-                    <div className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 rotate-12 md:right-0 lg:-right-6">
-                        <div className="absolute inset-0 rounded-2xl bg-[#17B6C4]/20 blur-xl" />
-                        <div className="relative flex items-center gap-3 rounded-2xl border border-white/80 bg-white/45 px-5 py-3 shadow-lg shadow-[#1B53E2]/15 backdrop-blur-2xl">
-                            <Logo className="h-12 w-12 shrink-0" />
-                            <span className="text-lg font-bold tracking-wide text-[#17B6C4]">
-                                LARTHA LABS
-                            </span>
-                        </div>
+                    <div className="absolute blur-[1px] opacity-80 hidden md:block top-1/2 z-10 -translate-y-1/2 -rotate-12 md:-right-16">
+                        <FadeIn delay={700}>
+                            <div className="absolute inset-0 rounded-2xl bg-white" />
+                            <div className="relative flex items-center gap-3 rounded-2xl border border-white/80 bg-white/45 px-5 py-3 shadow-lg shadow-[#1B53E2]/15 backdrop-blur-2xl">
+                                <Logo className="h-10 blur-[1px]" text />
+                            </div>
+                        </FadeIn>
                     </div>
                 </div>
+                <FadeIn delay={300}>
 
-                <p className="max-w-5xl text-2xl leading-relaxed text-slate-600">
-                    نساعد الشركات على تحويل أفكارها إلى حلول تقنية عملية، سهلة
-                    الاستخدام، وقابلة للتوسع. نركز على فهم احتياج العميل أولاً،
-                    ثم نبني حلولاً تجمع بين الأداء، التصميم، الأمان، وتجربة
-                    المستخدم.
-                </p>
+                    <p className="max-w-5xl text-2xl leading-relaxed text-slate-600">
+                        نساعد الشركات على تحويل أفكارها إلى حلول تقنية عملية، سهلة
+                        الاستخدام، وقابلة للتوسع. نركز على فهم احتياج العميل أولاً،
+                        ثم نبني حلولاً تجمع بين الأداء، التصميم، الأمان، وتجربة
+                        المستخدم.
+                    </p>
+                </FadeIn>
             </div>
         </section>
     )

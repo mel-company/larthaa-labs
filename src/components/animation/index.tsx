@@ -26,7 +26,7 @@ export const AnimatedWord = ({ text, delay = 200, className = "" }: { text: stri
     return (
         <span
             ref={ref}
-            className={`inline-block transition-all duration-1000 ease-out ${className}`}
+            className={`inline-block transition-all duration-700 ease-out ${className}`}
             style={{
                 opacity: isVisible ? 1 : 0,
                 filter: isVisible ? 'blur(0px)' : 'blur(10px)',
@@ -64,7 +64,7 @@ export const FadeIn = ({ children, delay, className = "" }: { children: React.Re
     return (
         <div
             ref={ref}
-            className={`transition-all duration-1000 ease-out ${className}`}
+            className={`transition-all duration-700 ease-out ${className}`}
             style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',

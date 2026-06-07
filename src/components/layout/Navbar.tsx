@@ -1,4 +1,5 @@
 import Logo from "./Logo"
+import classNames from "classnames"
 
 const navLinks = [
     { label: "من نحن", href: "#about" },
@@ -12,13 +13,13 @@ const Navbar = () => {
     const leftLinks = navLinks.slice(2)
 
     return (
-        <nav className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-sm">
-            <div className="mx-auto flex h-20 max-w-6xl items-center justify-center px-8 gap-8">
+        <nav className={classNames("fixed top-4 z-50 left-1/2 -translate-x-1/2 rounded-2xl border border-slate-100 bg-white/30 backdrop-blur-lg")}>
+            <div className="mx-auto flex max-w-6xl items-center justify-center px-8 gap-8">
                 {rightLinks.map((link) => (
                     <a
                         key={link.href}
                         href={link.href}
-                        className="text-lg text-slate-800 transition-colors hover:text-[#17B6C4]"
+                        className="text-lg text-slate-900 transition-colors hover:text-[#17B6C4]"
                     >
                         {link.label}
                     </a>
@@ -35,7 +36,7 @@ const Navbar = () => {
                     <a
                         key={link.href}
                         href={link.href}
-                        className="text-lg text-slate-800 transition-colors hover:text-[#17B6C4]"
+                        className="text-lg text-slate-900 transition-colors hover:text-[#17B6C4]"
                     >
                         {link.label}
                     </a>

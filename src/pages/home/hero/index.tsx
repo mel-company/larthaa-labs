@@ -6,8 +6,9 @@ import { useState, useEffect } from "react"
 const HeroSection = () => {
 
     return (
-        <header className="flex items-center justify-center relative h-screen w-screen overflow-hidden">
+        <header className="flex items-center justify-center relative h-screen w-screen overflow-visible">
             <Content />
+            <GlassLens />
             <BG />
         </header>)
 }
@@ -16,12 +17,15 @@ export default HeroSection
 
 
 const BG = () => {
-    return (<div dir="ltr" className="flex items-center justify-center w-full translate-y-4/5 absolute top-0 left-0">
-        <Rows />
-        <div className="w-full translate-y-1/4 scale-150 aspect-square bg-[#1B53E2] rounded-full blur-[6rem]" />
-        <div className="w-full translate-y-1/3 scale-200 aspect-square bg-[#00EFFE] rounded-full blur-[6rem] translate-x-1/2" />
-        <div className="w-full translate-y-1/2 scale-150 aspect-square bg-[#1B53E2] rounded-full blur-[6rem] translate-x-1/2" />
-    </div>)
+    return (
+        <div dir="ltr" className="flex -z-10 items-center h-[140vh] justify-center w-screen absolute top-0 left-0 overflow-hidden">
+            <div className="h-full w-full absolute top-0 left-0 bg-linear-to-b from-white via-white/0 to-white z-10" />
+            <Rows />
+            <div className="w-full translate-y-1/4 scale-150 aspect-square bg-[#1B53E2] rounded-full blur-[6rem]" />
+            <div className="w-full translate-y-1/3 scale-200 aspect-square bg-[#00EFFE] rounded-full blur-[6rem] translate-x-1/2" />
+            <div className="w-full translate-y-1/2 scale-150 aspect-square bg-[#1B53E2] rounded-full blur-[6rem] translate-x-1/2" />
+        </div>
+    )
 
 }
 
@@ -73,7 +77,7 @@ const FadeIn = ({ children, delay, className = "" }: { children: React.ReactNode
 }
 
 const Content = () => {
-    return <div className="flex flex-col relative items-center justify-center gap-8 z-20 text-center text-[#070C39]">
+    return <div className="flex flex-col relative mt-16 items-center justify-center gap-8 z-20 text-center text-[#070C39]">
         <FadeIn delay={1200} className="z-20">
             <Badge />
         </FadeIn>
@@ -120,15 +124,77 @@ const Badge = () => {
     )
 }
 
-const Rows = ({ length = 16 }) => {
+const Rows = ({ length = 20 }) => {
     return (
-        <div className="flex absolute bottom-0 left-0 w-full h-full z-50 -translate-y-1/3">
+        <div className="flex absolute bottom-0 left-0 w-full h-full z-10">
             {
                 Array.from({ length }).map((_, i) => (
-                    <div key={i} className="w-64 h-full bg-linear-to-r from-white to-white/0 opacity-10" />
+                    <div key={i} className="w-64 h-full bg-linear-to-r from-white/80 via-white/0 to-white/0 opacity-10 backdrop-blur-sm" />
                 ))
             }
         </div>
 
+    )
+}
+
+const GlassLens = () => {
+    const [pos, setPos] = useState({ x: -999, y: -999 })
+    const targetRef = { current: { x: -999, y: -999 } }
+
+    useEffect(() => {
+        const handleMove = (e: MouseEvent) => {
+            targetRef.current = { x: e.clientX, y: e.clientY }
+        }
+        window.addEventListener('mousemove', handleMove)
+        return () => window.removeEventListener('mousemove', handleMove)
+    }, [])
+
+    useEffect(() => {
+        let raf: number
+        const animate = () => {
+            setPos(prev => ({
+                x: prev.x + (targetRef.current.x - prev.x) * 0.08,
+                y: prev.y + (targetRef.current.y - prev.y) * 0.08,
+            }))
+            raf = requestAnimationFrame(animate)
+        }
+        raf = requestAnimationFrame(animate)
+        return () => cancelAnimationFrame(raf)
+    }, [])
+
+    const size = 280
+    const half = size / 2
+
+    return (
+        <div
+            className="fixed pointer-events-none z-15 rounded-full"
+            style={{
+                left: pos.x - half,
+                top: pos.y - half,
+                width: size,
+                height: size,
+                background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 70%)',
+                boxShadow: 'inset 0 0 40px rgba(255,255,255,0.15), 0 0 60px rgba(255,255,255,0.1)',
+                backdropFilter: 'blur(24px) saturate(140%)',
+                WebkitBackdropFilter: 'blur(24px) saturate(140%)',
+                border: '1px solid rgba(255,255,255,0.25)',
+            }}
+        >
+            <div
+                className="absolute rounded-full"
+                style={{
+                    inset: '12%',
+                    background: 'radial-gradient(circle at 40% 40%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)',
+                    filter: 'blur(8px)',
+                }}
+            />
+            <div
+                className="absolute rounded-full border border-white/20"
+                style={{
+                    inset: '18%',
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%)',
+                }}
+            />
+        </div>
     )
 }

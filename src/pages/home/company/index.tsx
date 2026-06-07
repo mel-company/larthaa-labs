@@ -38,7 +38,7 @@ const CompanySection = () => {
     return (
         <section
             id="about"
-            className="relative bg-linear-to-b from-[#E8F4FC] via-white to-white px-6 pt-24 pb-16"
+            className="relative px-6 pt-24 pb-16"
         >
             <div className="mx-auto flex max-w-5xl flex-col items-center gap-14 text-center">
                 <div className="flex flex-col items-center gap-4">

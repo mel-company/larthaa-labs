@@ -1,3 +1,4 @@
+import { AnimatedWord, FadeIn } from "@/components/animation"
 import { BtnPrimary, GlassIcon } from "@/components/ui/button"
 import { usePointerPosition } from "@/hooks/position"
 import { AltArrowRight } from "@solar-icons/react"
@@ -8,7 +9,6 @@ const HeroSection = () => {
     return (
         <header className="flex items-center justify-center relative h-screen w-screen overflow-visible">
             <Content />
-            <GlassLens />
             <BG />
         </header>)
 }
@@ -29,52 +29,6 @@ const BG = () => {
 
 }
 
-const AnimatedWord = ({ text, delay, className = "" }: { text: string, delay: number, className?: string }) => {
-    const [isVisible, setIsVisible] = useState(false)
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsVisible(true)
-        }, delay)
-        return () => clearTimeout(timer)
-    }, [delay])
-
-    return (
-        <span
-            className={`inline-block transition-all duration-1000 ease-out ${className}`}
-            style={{
-                opacity: isVisible ? 1 : 0,
-                filter: isVisible ? 'blur(0px)' : 'blur(10px)',
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-            }}
-        >
-            {text}{" "}
-        </span>
-    )
-}
-
-const FadeIn = ({ children, delay, className = "" }: { children: React.ReactNode, delay: number, className?: string }) => {
-    const [isVisible, setIsVisible] = useState(false)
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsVisible(true)
-        }, delay)
-        return () => clearTimeout(timer)
-    }, [delay])
-
-    return (
-        <div
-            className={`transition-all duration-1000 ease-out ${className}`}
-            style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-            }}
-        >
-            {children}
-        </div>
-    )
-}
 
 const Content = () => {
     return <div className="flex flex-col relative mt-16 items-center justify-center gap-8 z-20 text-center text-[#070C39]">
@@ -134,67 +88,5 @@ const Rows = ({ length = 20 }) => {
             }
         </div>
 
-    )
-}
-
-const GlassLens = () => {
-    const [pos, setPos] = useState({ x: -999, y: -999 })
-    const targetRef = { current: { x: -999, y: -999 } }
-
-    useEffect(() => {
-        const handleMove = (e: MouseEvent) => {
-            targetRef.current = { x: e.clientX, y: e.clientY }
-        }
-        window.addEventListener('mousemove', handleMove)
-        return () => window.removeEventListener('mousemove', handleMove)
-    }, [])
-
-    useEffect(() => {
-        let raf: number
-        const animate = () => {
-            setPos(prev => ({
-                x: prev.x + (targetRef.current.x - prev.x) * 0.08,
-                y: prev.y + (targetRef.current.y - prev.y) * 0.08,
-            }))
-            raf = requestAnimationFrame(animate)
-        }
-        raf = requestAnimationFrame(animate)
-        return () => cancelAnimationFrame(raf)
-    }, [])
-
-    const size = 280
-    const half = size / 2
-
-    return (
-        <div
-            className="fixed pointer-events-none z-15 rounded-full"
-            style={{
-                left: pos.x - half,
-                top: pos.y - half,
-                width: size,
-                height: size,
-                background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 70%)',
-                boxShadow: 'inset 0 0 40px rgba(255,255,255,0.15), 0 0 60px rgba(255,255,255,0.1)',
-                backdropFilter: 'blur(24px) saturate(140%)',
-                WebkitBackdropFilter: 'blur(24px) saturate(140%)',
-                border: '1px solid rgba(255,255,255,0.25)',
-            }}
-        >
-            <div
-                className="absolute rounded-full"
-                style={{
-                    inset: '12%',
-                    background: 'radial-gradient(circle at 40% 40%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)',
-                    filter: 'blur(8px)',
-                }}
-            />
-            <div
-                className="absolute rounded-full border border-white/20"
-                style={{
-                    inset: '18%',
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%)',
-                }}
-            />
-        </div>
     )
 }

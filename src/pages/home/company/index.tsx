@@ -1,25 +1,32 @@
+import { AnimatedWord, FadeIn } from "@/components/animation"
 import Logo from "@/components/layout/Logo"
+import SectionTitle from "@/components/ui/section-title"
 
 const tags = [
-    { label: "تصميم وتطوير المواقع", rotate: "-rotate-[6deg]", x: "translate-x-4" },
-    { label: "إنشـــــاء التـــــطبيقات", rotate: "rotate-[6deg]", x: "translate-x-16" },
-    { label: "أي نظام أبالك", rotate: "-rotate-[8deg]", x: "-translate-x-4" },
+    { label: "تصميم وتطوير المواقع", rotate: "-rotate-[6deg]", x: "translate-x-4", delay: 200 },
+    { label: "إنشـــــاء التـــــطبيقات", rotate: "rotate-[6deg]", x: "translate-x-16", delay: 300 },
+    { label: "أي نظام أبالك", rotate: "-rotate-[8deg]", x: "-translate-x-4", delay: 400 },
 ]
 
 const Tag = ({
     label,
     rotate,
     x,
+    delay,
 }: {
     label: string
     rotate: string
     x: string
+    delay: number
 }) => (
-    <p
-        className={`whitespace-nowrap flex  items-center justify-center gap-2 rounded-2xl border border-[#93C1F5]/60 bg-[#1B53E2]/5 backdrop-blur-sm px-5 py-3 text-4xl text-[#070C39] ${rotate} ${x}`}
-    >
-        {label} <div className="min-h-2.5 w-2.5 min-w-2.5 aspect-square rounded bg-[#1B53E2]" />
-    </p>
+    <FadeIn delay={delay}>
+
+        <p
+            className={`whitespace-nowrap flex  items-center justify-center gap-2 rounded-2xl border border-[#93C1F5]/60 bg-[#1B53E2]/5 backdrop-blur-sm px-5 py-3 text-4xl text-[#070C39] ${rotate} ${x}`}
+        >
+            {label} <div className="min-h-2.5 w-2.5 min-w-2.5 aspect-square rounded bg-[#1B53E2]" />
+        </p>
+    </FadeIn>
 )
 
 const CompanySection = () => {
@@ -30,13 +37,13 @@ const CompanySection = () => {
         >
             <div className="mx-auto flex max-w-5xl flex-col items-center gap-14 text-center">
                 <div className="flex flex-col items-center gap-4">
-                    <p className="text-3xl font-bold text-[#070C39]">من نحن</p>
+                    <SectionTitle text="من نحن" />
                     <img src="/star-list.svg" />
                 </div>
 
                 <h2 className="text-6xl font-serif font-bold leading-tight text-[#070C39] md:text-7xl">
-                    <span className="linear">شركة برمجيات</span>{" "}
-                    <span>متخصصة في</span>
+                    <AnimatedWord text="شركة برمجيات" className="linear" delay={300} />{" "}
+                    <AnimatedWord text="متخصصة في" delay={500} />
                 </h2>
 
                 <div dir="ltr" className="relative mx-auto h-72 w-full max-w-5xl">

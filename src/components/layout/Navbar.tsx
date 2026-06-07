@@ -13,38 +13,34 @@ const Navbar = () => {
 
     return (
         <nav className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-sm">
-            <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-8">
-                <div className="flex items-center gap-14">
-                    {rightLinks.map((link) => (
-                        <a
-                            key={link.href}
-                            href={link.href}
-                            className="text-lg font-medium text-black transition-colors hover:text-[#17B6C4]"
-                        >
-                            {link.label}
-                        </a>
-                    ))}
-                </div>
+            <div className="mx-auto flex h-20 max-w-6xl items-center justify-center px-8 gap-8">
+                {rightLinks.map((link) => (
+                    <a
+                        key={link.href}
+                        href={link.href}
+                        className="text-lg text-slate-800 transition-colors hover:text-[#17B6C4]"
+                    >
+                        {link.label}
+                    </a>
+                ))}
 
                 <a
                     href="/"
-                    className="absolute left-1/2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-2xl bg-[#E0F7FA] ring-2 ring-[#17B6C4]/30"
+                    className="flex h-14 w-14 items-center justify-center "
                     aria-label="الرئيسية"
                 >
                     <Logo className="h-8 w-8" />
                 </a>
+                {leftLinks.map((link) => (
+                    <a
+                        key={link.href}
+                        href={link.href}
+                        className="text-lg text-slate-800 transition-colors hover:text-[#17B6C4]"
+                    >
+                        {link.label}
+                    </a>
+                ))}
 
-                <div className="flex items-center gap-14">
-                    {leftLinks.map((link) => (
-                        <a
-                            key={link.href}
-                            href={link.href}
-                            className="text-lg font-medium text-black transition-colors hover:text-[#17B6C4]"
-                        >
-                            {link.label}
-                        </a>
-                    ))}
-                </div>
             </div>
         </nav>
     )

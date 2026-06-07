@@ -1,0 +1,27 @@
+{
+  "name": "لارثا لابس — Larthaa Labs",
+  "short_name": "Larthaa",
+  "description": "تصميم وتطوير مواقع، تطبيقات، وأنظمة رقمية للشركات في العراق والمنطقة.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#070C39",
+  "theme_color": "#1B53E2",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

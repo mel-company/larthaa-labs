@@ -1,5 +1,7 @@
+import Footer from "@/components/layout/Footer"
 import Navbar from "@/components/layout/Navbar"
 import CompanySection from "./company"
+import ContactSection from "./contact"
 import HeroSection from "./hero"
 import ProjectsSection from "./projects"
 import ServicesSection from "./services"
@@ -14,6 +16,8 @@ const HomePage = () => {
             <ServicesSection />
             <ProjectsSection />
             <WhySection />
+            <ContactSection />
+            <Footer />
         </>
     )
 }

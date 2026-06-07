@@ -1,13 +1,30 @@
 import classNames from "classnames";
 import ClickSpark from "../reactbits/ClickSpark";
 
-export const BtnPrimary = ({ children, primary }: { children: React.ReactNode; primary?: boolean }) => {
+export const BtnPrimary = ({
+    children,
+    primary,
+    onClick,
+    disabled,
+    className,
+}: {
+    children: React.ReactNode
+    primary?: boolean
+    onClick?: () => void
+    disabled?: boolean
+    className?: string
+}) => {
     return (
         <BtnWrapper>
-            <button className={classNames("btn text-nowrap", {
-                "btn-primary": primary,
-                "btn-secondary": !primary
-            })}>
+            <button
+                type="button"
+                onClick={onClick}
+                disabled={disabled}
+                className={classNames("btn text-nowrap", {
+                    "btn-primary": primary,
+                    "btn-secondary": !primary,
+                }, className)}
+            >
                 {children}
             </button>
         </BtnWrapper>

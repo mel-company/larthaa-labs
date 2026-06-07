@@ -2,7 +2,6 @@ import { AnimatedWord, FadeIn } from "@/components/animation"
 import { BtnPrimary, GlassIcon } from "@/components/ui/button"
 import { usePointerPosition } from "@/hooks/position"
 import { AltArrowRight } from "@solar-icons/react"
-import { useState, useEffect } from "react"
 
 const HeroSection = () => {
 
@@ -51,15 +50,19 @@ const Content = () => {
         </FadeIn>
         <FadeIn delay={1600}>
             <div className="flex items-center gap-4 mt-4">
-                <BtnPrimary primary>
-                    <GlassIcon>
-                        <AltArrowRight weight={"Outline"} size={24} color='#fff' />
-                    </GlassIcon>
-                    اطلب إستشــارة
-                </BtnPrimary>
-                <BtnPrimary>
-                    أبدأ مشروعــك
-                </BtnPrimary>
+                <a href="#contact">
+                    <BtnPrimary primary>
+                        <GlassIcon>
+                            <AltArrowRight weight={"Outline"} size={24} color='#fff' />
+                        </GlassIcon>
+                        اطلب إستشــارة
+                    </BtnPrimary>
+                </a>
+                <a href="#contact">
+                    <BtnPrimary>
+                        أبدأ مشروعــك
+                    </BtnPrimary>
+                </a>
             </div>
         </FadeIn>
     </div>

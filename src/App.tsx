@@ -1,11 +1,7 @@
-
-import { SmoothScroll } from 'react-smooth-scrolll'
 import HomePage from './pages/home'
 
 function App() {
-
-  return <SmoothScroll><HomePage /></SmoothScroll>
-
+  return <HomePage />
 }
 
 export default App

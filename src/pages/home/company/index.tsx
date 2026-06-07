@@ -6,18 +6,6 @@ const tags = [
     { label: "أي نظام أبالك", rotate: "-rotate-[8deg]", x: "-translate-x-4" },
 ]
 
-const Diamonds = () => (
-    <div className="flex items-center gap-2">
-        {[0.3, 0.65, 1].map((opacity) => (
-            <span
-                key={opacity}
-                className="h-2 w-2 rotate-45 bg-[#1B53E2]"
-                style={{ opacity }}
-            />
-        ))}
-    </div>
-)
-
 const Tag = ({
     label,
     rotate,

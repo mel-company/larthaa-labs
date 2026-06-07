@@ -119,6 +119,16 @@ p {
   font-feature-settings: 'swsh' on, 'salt' on;
 }
 
+#why-us p {
+  font-family: 'Thmanyah Sans', sans-serif;
+  font-feature-settings: 'swsh' off, 'salt' off;
+}
+
+#why-us h3 {
+  font-family: 'Thmanyah Serif Display', serif;
+  font-feature-settings: 'swsh' off, 'salt' off;
+}
+
 header .linear {
   background: linear-gradient(90deg, #03B0FF 0%, #1B53E2 100%);
   -webkit-background-clip: text;
@@ -145,4 +155,14 @@ header .linear {
 
 .btn-secondary {
   @apply bg-white text-[#1B53E2] font-bold hover:drop-shadow-xl;
+}
+
+@keyframes gradient-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -5,7 +5,7 @@ import { AltArrowRight } from "@solar-icons/react"
 
 const HeroSection = () => {
     return (
-        <header className="relative flex min-h-dvh w-full items-center justify-center overflow-hidden px-4 pt-24 pb-12 sm:px-6">
+        <header className="relative flex min-h-dvh w-full items-center justify-center px-4 pt-24 pb-12 sm:px-6">
             <Content />
             <BG />
         </header>
@@ -18,7 +18,7 @@ const BG = () => {
     return (
         <div
             dir="ltr"
-            className="absolute top-0 left-0 -z-10 flex h-[140vh] w-full items-center justify-center overflow-hidden"
+            className="absolute top-0 left-0 -z-10 flex h-[140vh] w-full items-center justify-center overflow-x-hidden"
         >
             <div className="absolute top-0 left-0 z-10 h-full w-full bg-linear-to-b from-white via-white/0 to-white" />
             <Rows />
@@ -31,11 +31,11 @@ const BG = () => {
 
 const Content = () => {
     return (
-        <div className="relative z-20 flex w-full max-w-5xl flex-col items-center justify-center gap-4 text-center text-[#070C39] sm:gap-6 md:mt-8 md:gap-8">
+        <div className="relative z-20 flex w-full max-w-5xl md:max-w-6xl flex-col items-center justify-center gap-4 text-center text-[#070C39] sm:gap-6 md:mt-8 md:gap-8">
             <FadeIn delay={1200} className="z-20 w-full">
                 <Badge />
             </FadeIn>
-            <h1 className="text-4xl font-serif font-bold leading-snug sm:text-5xl md:text-6xl lg:text-8xl">
+            <h1 className="text-5xl font-serif font-bold leading-snug sm:text-5xl md:text-6xl lg:text-8xl">
                 <span className="font-normal">
                     <AnimatedWord text="حلـــــول" delay={0} />{" "}
                     <AnimatedWord text="برمجية" delay={200} />

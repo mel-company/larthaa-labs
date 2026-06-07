@@ -4,6 +4,7 @@ import SectionTitle from "@/components/ui/section-title"
 import { ChatRound, Pen, SendSquare, Widget } from "@solar-icons/react"
 import { motion } from "motion/react"
 import { useState } from "react"
+import { AnimatedWord } from "@/components/animation"
 
 const steps = [
     {
@@ -54,6 +55,13 @@ const ContactSection = () => {
 
             <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-6 text-center">
                 <SectionTitle text="تواصل معنا" />
+                <h2 className="text-5xl font-serif font-bold leading-tight sm:text-4xl md:text-7xl">
+                    <AnimatedWord text="جاهز" />{" "}
+                    <AnimatedWord text="لتحويل" delay={300} />{" "}
+                    <AnimatedWord text="رؤيتك" delay={400} />{" "}
+                    <AnimatedWord text="إلى" delay={500} />{" "}
+                    <AnimatedWord text="واقـع؟" delay={600} className="linear pb-2" />
+                </h2>
                 <img src="/star-list.svg" alt="" className="h-9 w-auto" />
                 <p className="max-w-2xl text-base leading-relaxed text-[#414673] sm:text-xl">
                     جاهز تبدأ مشروعك؟ اتبع الخطوات البسيطة وأرسل لنا طلبك

@@ -1,4 +1,6 @@
 import { Global, Smartphone, Widget } from "@solar-icons/react"
+import BorderGlow from "@/components/reactbits/BorderGlow"
+import { FadeIn } from "@/components/animation"
 
 const services = [
     {
@@ -44,27 +46,37 @@ const ServiceCard = ({
     icon: typeof Global
     index: number
 }) => (
-    <div
-        className="group relative transition-transform duration-300 hover:-translate-y-2"
-        style={{ transitionDelay: `${index * 80}ms` }}
-    >
-        <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-[#03B0FF]/30 to-[#1B53E2]/30 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="relative rounded-3xl bg-linear-to-br from-[#03B0FF] to-[#1B53E2] p-[2px] shadow-[0_24px_48px_-20px_rgba(27,83,226,0.35)]">
-            <div className="flex h-full flex-col gap-5 rounded-[22px] bg-white p-6 text-right sm:gap-6 sm:p-8">
-                <div className="flex justify-end">
-                    <div className="rounded-2xl bg-[#EEF6FC] p-3 text-[#1B53E2] transition-colors group-hover:bg-[#1B53E2] group-hover:text-white">
-                        <Icon weight="Outline" size={28} />
+    <FadeIn delay={index * 200} className="group">
+        <div
+            className=" relative transition-transform duration-300 hover:-translate-y-2 h-full"
+            style={{ transitionDelay: `${index * 80}ms` }}
+        >
+            <div className="relative overflow-hidden rounded-3xl p-[3px] shadow-[0_24px_48px_-20px_rgba(27,83,226,0.35)] h-full">
+                <div
+                    className="absolute inset-[-150%] z-0"
+                    style={{
+                        background: 'conic-gradient(from 0deg, #20C3CD, #40E0FF, #03B0FF, #1B53E2, #03B0FF, #40E0FF, #20C3CD)',
+                        animation: 'gradient-rotate 3s linear infinite',
+                        willChange: 'transform',
+                    }}
+                />
+                <div className="relative z-10 flex h-full flex-col gap-5 rounded-[20px] bg-white p-6 text-right sm:gap-6 sm:p-8">
+
+                    <div className="flex justify-start">
+                        <div className="rounded-2xl bg-[#EEF6FC] p-3 text-[#1B53E2] transition-colors group-hover:bg-[#1B53E2] group-hover:text-white">
+                            <Icon weight="Outline" size={28} />
+                        </div>
                     </div>
+                    <h3 className="text-4xl font-bold leading-normal">
+                        <span className="linear">{title}</span>
+                    </h3>
+                    <p className="text-base leading-relaxed text-[#414673] sm:text-lg">
+                        {description}
+                    </p>
                 </div>
-                <h3 className="text-xl font-bold leading-snug sm:text-2xl">
-                    <span className="linear">{title}</span>
-                </h3>
-                <p className="text-base leading-relaxed text-[#414673] sm:text-lg">
-                    {description}
-                </p>
             </div>
         </div>
-    </div>
+    </FadeIn>
 )
 
 const ServicesSection = () => {

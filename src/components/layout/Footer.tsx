@@ -24,9 +24,8 @@ const Footer = () => {
                 <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:items-start">
                     <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-right">
                         <div className="flex items-center gap-3">
-                            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E0F7FA]">
-                                <Logo className="h-9 w-9" />
-                            </div>
+                            <Logo className="h-9 w-9" />
+
                             <div>
                                 <p className="text-xl font-bold">لارثا لابس</p>
                                 <p className="text-sm text-[#93C1F5]">LARTHA LABS</p>

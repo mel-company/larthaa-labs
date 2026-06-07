@@ -1,66 +1,51 @@
+import { AnimatedWord } from "@/components/animation"
 import {
     ShieldCheck,
+    StarShine,
     UserCheck,
-    UsersGroupRounded,
 } from "@solar-icons/react"
 import { motion } from "motion/react"
 
 const WAVE_PATH =
-    "M0,100 C120,100 180,168 250,168 C320,168 400,32 500,32 C600,32 680,168 750,168 C820,168 880,100 1000,100"
+    "M0,160 C120,160 180,320 250,320 C320,320 400,0 500,0 C600,0 680,320 750,320 C820,320 880,160 1000,160"
 
 const points = [
     {
-        title: "تسليم في الموعد",
+        title: "تسليم في الموعــد",
         description:
             "نلتزم بالجداول الزمنية المحددة ونسعى دائماً لتجاوز التوقعات",
         icon: UserCheck,
         x: "25%",
-        iconTop: 240,
-        textTop: 52,
+        iconTop: 326,
+        textTop: 130,
         textAbove: true,
         delay: 0.2,
     },
     {
-        title: "التزام بالجودة",
+        title: "التزام بالجــودة",
         description:
             "نطبق أفضل الممارسات والمعايير العالمية لضمان جودة الأكواد والتصاميم",
         icon: ShieldCheck,
         x: "50%",
-        iconTop: 104,
-        textTop: 196,
+        iconTop: 36,
+        textTop: 210,
         textAbove: false,
         delay: 0.4,
     },
     {
-        title: "خبرة واسعة",
+        title: "خبرة واسعــة",
         description:
             "فريق متخصص من المطورين والمصممين ذوي الخبرة في أحدث التقنيات",
-        icon: UsersGroupRounded,
+        icon: StarShine,
         x: "75%",
-        iconTop: 240,
-        textTop: 52,
+        iconTop: 326,
+        textTop: 130,
         textAbove: true,
         delay: 0.6,
     },
 ]
 
-const Diamonds = () => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.15 }}
-        className="flex items-center gap-2.5"
-    >
-        {[0.3, 0.65, 1].map((opacity) => (
-            <span
-                key={opacity}
-                className="h-2.5 w-2.5 rotate-45 rounded-sm bg-[#1B53E2]"
-                style={{ opacity }}
-            />
-        ))}
-    </motion.div>
-)
+
 
 const IconBadge = ({
     icon: Icon,
@@ -79,12 +64,8 @@ const IconBadge = ({
     >
         <div className="absolute inset-0 scale-150 rounded-full bg-linear-to-br from-[#03B0FF]/40 to-[#1B53E2]/40 opacity-60 blur-xl transition-all duration-500 group-hover:scale-[1.7] group-hover:opacity-80" />
         <div className="absolute inset-0 animate-ping rounded-full bg-[#1B53E2]/10 opacity-0 group-hover:opacity-100" />
-        <div className="relative rounded-full bg-linear-to-br from-[#03B0FF] to-[#1B53E2] p-[2px] shadow-[0_12px_40px_rgba(27,83,226,0.35)]">
-            <div className="flex h-[76px] w-[76px] items-center justify-center rounded-full bg-white">
-                <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-linear-to-br from-[#EEF6FC] to-white">
-                    <Icon weight="Outline" size={30} className="text-[#1B53E2]" />
-                </div>
-            </div>
+        <div className="flex p-3 items-center justify-center backdrop-blur-xs rounded-3xl bg-white/50">
+            <Icon weight="Bold" size={48} className="text-[#1B53E2]" />
         </div>
     </motion.div>
 )
@@ -103,12 +84,12 @@ const PointText = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay }}
-        className="w-full max-w-xs rounded-2xl border border-white/80 bg-white/70 px-5 py-4 text-center shadow-[0_8px_32px_rgba(27,83,226,0.08)] backdrop-blur-md sm:max-w-sm md:w-[250px]"
+        className="w-full max-w-sm rounded-2xl px-5 py-4 text-center sm:max-w-sm"
     >
-        <h3 className="text-xl font-bold">
-            <span className="linear">{title}</span>
+        <h3 >
+            <AnimatedWord delay={delay * 2} text={title} className="text-5xl font-bold text-[#1B53E2]" />
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-[#414673]">
+        <p className="mt-2 text-sm md:text-lg leading-relaxed text-[#414673]">
             {description}
         </p>
     </motion.div>
@@ -116,41 +97,18 @@ const PointText = ({
 
 const WaveGraphic = () => (
     <svg
-        className="absolute inset-x-0 top-[108px] h-[200px] w-full"
-        viewBox="0 0 1000 200"
+        className="absolute inset-x-0 top-[60px] h-[320px] w-full"
+        viewBox="0 -20 1000 360"
         fill="none"
         preserveAspectRatio="none"
         aria-hidden
     >
-        <defs>
-            <linearGradient
-                id="why-wave-gradient"
-                x1="0"
-                y1="0"
-                x2="1000"
-                y2="0"
-                gradientUnits="userSpaceOnUse"
-            >
-                <stop offset="0%" stopColor="#03B0FF" />
-                <stop offset="50%" stopColor="#1B53E2" />
-                <stop offset="100%" stopColor="#03B0FF" />
-            </linearGradient>
-            <filter id="why-glow" x="-10%" y="-10%" width="120%" height="120%">
-                <feGaussianBlur stdDeviation="6" result="blur" />
-                <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                </feMerge>
-            </filter>
-        </defs>
-
         <motion.path
             d={WAVE_PATH}
-            stroke="url(#why-wave-gradient)"
+            stroke="#1B53E2"
             strokeWidth="8"
             strokeLinecap="round"
             opacity={0.25}
-            filter="url(#why-glow)"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -158,7 +116,7 @@ const WaveGraphic = () => (
         />
         <motion.path
             d={WAVE_PATH}
-            stroke="url(#why-wave-gradient)"
+            stroke="#1B53E2"
             strokeWidth="3"
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
@@ -168,9 +126,9 @@ const WaveGraphic = () => (
         />
 
         {[
-            { cx: 250, cy: 168 },
-            { cx: 500, cy: 32 },
-            { cx: 750, cy: 168 },
+            { cx: 250, cy: 340 },
+            { cx: 500, cy: 20 },
+            { cx: 750, cy: 340 },
         ].map((dot, i) => (
             <motion.circle
                 key={dot.cx}
@@ -189,7 +147,7 @@ const WaveGraphic = () => (
 
 const WhySection = () => {
     return (
-        <section className="relative overflow-hidden bg-linear-to-b from-[#EAF5FD] via-[#F8FBFF] to-white px-4 pt-14 pb-20 sm:px-6 sm:pt-16 sm:pb-28">
+        <section id="why-us" className="relative overflow-hidden bg-linear-to-b from-[#EAF5FD] via-[#F8FBFF] to-white px-4 pt-14 pb-20 sm:px-6 sm:pt-16 sm:pb-28">
             <div className="pointer-events-none absolute inset-0">
                 <motion.div
                     animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
@@ -221,9 +179,11 @@ const WhySection = () => {
                 className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 text-center"
             >
                 <h2 className="text-3xl font-serif font-bold sm:text-4xl md:text-7xl">
-                    <span className="linear">لماذا لارثا لابس؟</span>
+                    <AnimatedWord text="لماذا" />{" "}
+                    <AnimatedWord text="لارثا" delay={400} />{" "}
+                    <AnimatedWord text="لابس؟" delay={600} />
                 </h2>
-                <Diamonds />
+                <img src="/star-list.svg" />
                 <p className="max-w-3xl text-lg leading-relaxed text-[#414673] md:text-xl">
                     لا نكتفي بكتابة الأكواد، بل نبني شراكات استراتيجية تساعدك
                     على تحقيق أهدافك الرقمية. نجمع بين الخبرة التقنية وفهم
@@ -253,7 +213,7 @@ const WhySection = () => {
             </div>
 
             {/* Desktop */}
-            <div className="relative mx-auto mt-20 hidden h-[420px] w-full md:block">
+            <div className="relative mx-auto mt-20 hidden h-[460px] w-full md:block">
                 <WaveGraphic />
 
                 {points.map((point) => (

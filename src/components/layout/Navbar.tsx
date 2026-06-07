@@ -3,7 +3,7 @@ import Logo from "./Logo"
 const navLinks = [
     { label: "من نحن", href: "#about" },
     { label: "خدماتنا", href: "#services" },
-    { label: "عملاؤنا", href: "#clients" },
+    { label: "مشاريعنا", href: "#projects" },
     { label: "تواصل معنا", href: "#contact" },
 ]
 

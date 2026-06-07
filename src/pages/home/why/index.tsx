@@ -103,7 +103,7 @@ const PointText = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay }}
-        className="w-[250px] rounded-2xl border border-white/80 bg-white/70 px-5 py-4 text-center shadow-[0_8px_32px_rgba(27,83,226,0.08)] backdrop-blur-md"
+        className="w-full max-w-xs rounded-2xl border border-white/80 bg-white/70 px-5 py-4 text-center shadow-[0_8px_32px_rgba(27,83,226,0.08)] backdrop-blur-md sm:max-w-sm md:w-[250px]"
     >
         <h3 className="text-xl font-bold">
             <span className="linear">{title}</span>
@@ -189,7 +189,7 @@ const WaveGraphic = () => (
 
 const WhySection = () => {
     return (
-        <section className="relative overflow-hidden bg-linear-to-b from-[#EAF5FD] via-[#F8FBFF] to-white pt-16 pb-28">
+        <section className="relative overflow-hidden bg-linear-to-b from-[#EAF5FD] via-[#F8FBFF] to-white px-4 pt-14 pb-20 sm:px-6 sm:pt-16 sm:pb-28">
             <div className="pointer-events-none absolute inset-0">
                 <motion.div
                     animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
@@ -220,7 +220,7 @@ const WhySection = () => {
                 transition={{ duration: 0.7 }}
                 className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 text-center"
             >
-                <h2 className="text-5xl font-serif font-bold md:text-7xl">
+                <h2 className="text-3xl font-serif font-bold sm:text-4xl md:text-7xl">
                     <span className="linear">لماذا لارثا لابس؟</span>
                 </h2>
                 <Diamonds />

@@ -29,7 +29,7 @@ const ProjectPreview = ({
             <span className="h-2.5 w-2.5 rounded-full bg-[#FF6B6B]/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#FFD166]/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#06D6A0]/80" />
-            <span className="me-auto text-xs text-[#414673]/60">
+            <span className="me-auto max-w-[55%] truncate text-xs text-[#414673]/60">
                 {project.url.replace(/^https?:\/\//, "")}
             </span>
         </div>
@@ -85,7 +85,7 @@ const ProjectCard = ({
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.45, delay: index * 0.08 }}
-        className={`group relative ${featured ? "md:col-span-2" : ""}`}
+        className={`group relative ${featured ? "lg:col-span-2" : ""}`}
     >
         <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-[#03B0FF]/20 to-[#1B53E2]/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
         <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#93C1F5]/40 bg-white shadow-[0_20px_60px_-24px_rgba(27,83,226,0.25)] transition-transform duration-300 group-hover:-translate-y-1">
@@ -109,7 +109,7 @@ const ProjectCard = ({
                 </div>
 
                 <div>
-                    <h3 className="text-2xl font-bold text-[#070C39]">
+                    <h3 className="text-xl font-bold text-[#070C39] sm:text-2xl">
                         {featured ? (
                             <span className="linear">{project.title}</span>
                         ) : (
@@ -169,7 +169,7 @@ const ProjectsSection = () => {
     return (
         <section
             id="projects"
-            className="relative overflow-hidden bg-linear-to-b from-white via-[#F8FBFF] to-white px-6 pt-16 pb-28"
+            className="relative overflow-hidden bg-linear-to-b from-white via-[#F8FBFF] to-white px-4 pt-14 pb-20 sm:px-6 sm:pt-16 sm:pb-28"
         >
             <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-[#03B0FF]/10 blur-3xl" />
             <div className="pointer-events-none absolute -right-32 bottom-20 h-96 w-96 rounded-full bg-[#1B53E2]/8 blur-3xl" />
@@ -181,11 +181,11 @@ const ProjectsSection = () => {
                 transition={{ duration: 0.6 }}
                 className="relative mx-auto flex max-w-6xl flex-col items-center gap-6 text-center"
             >
-                <h2 className="text-5xl font-serif font-bold md:text-6xl">
+                <h2 className="text-3xl font-serif font-bold sm:text-4xl md:text-6xl">
                     <span className="linear">مشاريعنا</span>
                 </h2>
                 <Diamonds />
-                <p className="max-w-3xl text-xl leading-relaxed text-[#414673]">
+                <p className="max-w-3xl text-base leading-relaxed text-[#414673] sm:text-lg md:text-xl">
                     نبني منتجات رقمية حقيقية تُحدث أثراً تشغيلياً ملموساً — منصات
                     وأنظمة تُدار آلاف العمليات عبرها يومياً، وتمنح الشركات رؤية
                     أوضح، قرارات أسرع، وكفاءة أعلى
@@ -198,7 +198,7 @@ const ProjectsSection = () => {
                         key={cat.id}
                         type="button"
                         onClick={() => setActiveCategory(cat.id)}
-                        className={`rounded-2xl px-6 py-2.5 text-sm font-bold transition-all ${
+                        className={`rounded-2xl px-4 py-2 text-sm font-bold transition-all sm:px-6 sm:py-2.5 ${
                             activeCategory === cat.id
                                 ? "bg-[#1B53E2] text-white shadow-lg shadow-[#1B53E2]/25"
                                 : "bg-white text-[#414673] ring-1 ring-[#93C1F5]/50 hover:bg-[#EEF6FC] hover:text-[#1B53E2]"
@@ -213,7 +213,7 @@ const ProjectsSection = () => {
                 <AnimatePresence mode="popLayout">
                     <motion.div
                         key={activeCategory}
-                        className="grid gap-8 md:grid-cols-2"
+                        className="grid gap-6 sm:gap-8 md:grid-cols-2"
                     >
                         {sorted.map((project, index) => (
                             <ProjectCard

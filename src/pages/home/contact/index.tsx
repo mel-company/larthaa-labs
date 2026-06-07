@@ -47,7 +47,7 @@ const ContactSection = () => {
     return (
         <section
             id="contact"
-            className="relative overflow-hidden bg-linear-to-b from-white via-[#EAF5FD] to-white px-6 py-24"
+            className="relative overflow-hidden bg-linear-to-b from-white via-[#EAF5FD] to-white px-4 py-16 sm:px-6 sm:py-24"
         >
             <div className="pointer-events-none absolute -left-32 top-0 h-80 w-80 rounded-full bg-[#03B0FF]/10 blur-3xl" />
             <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-[#1B53E2]/8 blur-3xl" />
@@ -55,7 +55,7 @@ const ContactSection = () => {
             <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-6 text-center">
                 <SectionTitle text="تواصل معنا" />
                 <img src="/star-list.svg" alt="" className="h-9 w-auto" />
-                <p className="max-w-2xl text-xl leading-relaxed text-[#414673]">
+                <p className="max-w-2xl text-base leading-relaxed text-[#414673] sm:text-xl">
                     جاهز تبدأ مشروعك؟ اتبع الخطوات البسيطة وأرسل لنا طلبك
                     مباشرة عبر واتساب
                 </p>
@@ -91,7 +91,7 @@ const ContactSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative mx-auto mt-14 max-w-2xl rounded-3xl border border-[#93C1F5]/50 bg-white p-8 shadow-[0_24px_60px_-20px_rgba(27,83,226,0.2)]"
+                className="relative mx-auto mt-10 max-w-2xl rounded-3xl border border-[#93C1F5]/50 bg-white p-5 shadow-[0_24px_60px_-20px_rgba(27,83,226,0.2)] sm:mt-14 sm:p-8"
             >
                 <div className="flex flex-col gap-5 text-right">
                     <div>

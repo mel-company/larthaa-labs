@@ -50,16 +50,16 @@ const ServiceCard = ({
     >
         <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-[#03B0FF]/30 to-[#1B53E2]/30 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
         <div className="relative rounded-3xl bg-linear-to-br from-[#03B0FF] to-[#1B53E2] p-[2px] shadow-[0_24px_48px_-20px_rgba(27,83,226,0.35)]">
-            <div className="flex h-full flex-col gap-6 rounded-[22px] bg-white p-8 text-right">
+            <div className="flex h-full flex-col gap-5 rounded-[22px] bg-white p-6 text-right sm:gap-6 sm:p-8">
                 <div className="flex justify-end">
                     <div className="rounded-2xl bg-[#EEF6FC] p-3 text-[#1B53E2] transition-colors group-hover:bg-[#1B53E2] group-hover:text-white">
                         <Icon weight="Outline" size={28} />
                     </div>
                 </div>
-                <h3 className="text-2xl font-bold leading-snug">
+                <h3 className="text-xl font-bold leading-snug sm:text-2xl">
                     <span className="linear">{title}</span>
                 </h3>
-                <p className="text-lg leading-relaxed text-[#414673]">
+                <p className="text-base leading-relaxed text-[#414673] sm:text-lg">
                     {description}
                 </p>
             </div>
@@ -69,15 +69,15 @@ const ServiceCard = ({
 
 const ServicesSection = () => {
     return (
-        <section id="services" className="relative overflow-hidden bg-white px-6 pt-12 pb-24">
+        <section id="services" className="relative overflow-hidden bg-white px-4 pt-12 pb-20 sm:px-6 sm:pb-24">
             <div className="pointer-events-none absolute -right-32 top-1/4 h-96 w-96 rounded-full bg-[#03B0FF]/10 blur-3xl" />
             <div className="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#1B53E2]/8 blur-3xl" />
 
             <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-14">
                 <div className="flex flex-col items-center gap-4 text-center">
-                    <h3 className="text-3xl font-bold text-[#070C39]">خدماتنا</h3>
+                    <h3 className="text-2xl font-bold text-[#070C39] sm:text-3xl">خدماتنا</h3>
                     <Diamonds />
-                    <p className="max-w-2xl text-xl text-[#414673]">
+                    <p className="max-w-2xl text-base text-[#414673] sm:text-xl">
                         نقدم مجموعة من الخدمات البرمجية لتلبية احتياجاتك الرقمية
                     </p>
                 </div>

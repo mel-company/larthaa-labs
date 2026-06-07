@@ -16,7 +16,7 @@ const Footer = () => {
     })
 
     return (
-        <footer className="relative overflow-hidden bg-[#070C39] px-6 pt-16 pb-8 text-white">
+        <footer className="relative overflow-hidden bg-[#070C39] px-4 pt-14 pb-8 text-white sm:px-6 sm:pt-16">
             <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#1B53E2]/30 blur-3xl" />
             <div className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-[#03B0FF]/20 blur-3xl" />
 
@@ -54,7 +54,7 @@ const Footer = () => {
                         href={whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-2xl bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#25D366]/25 transition hover:scale-[1.02] hover:bg-[#20BD5A]"
+                        className="w-full rounded-2xl bg-[#25D366] px-6 py-3 text-center text-sm font-bold text-white shadow-lg shadow-[#25D366]/25 transition hover:bg-[#20BD5A] sm:w-auto sm:hover:scale-[1.02]"
                     >
                         تواصل عبر واتساب
                     </a>

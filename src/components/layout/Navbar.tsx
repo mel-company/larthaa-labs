@@ -1,81 +1,50 @@
 import Logo from "./Logo"
 import classNames from "classnames"
+import { StaggeredMenu } from "../reactbits/StaggeredMenu"
 import { useState } from "react"
+import { useMenu } from "@/hooks/menu"
+import { AnimatedWord } from "../animation"
+import { CloseSquare, HamburgerMenu } from "@solar-icons/react"
 
 const navLinks = [
-    { label: "من نحن", href: "#about" },
-    { label: "خدماتنا", href: "#services" },
-    { label: "مشاريعنا", href: "#projects" },
-    { label: "تواصل معنا", href: "#contact" },
+    { label: "من نحن", link: "#about" },
+    { label: "خدماتنا", link: "#services" },
+    { label: "مشاريعنا", link: "#projects" },
+    { label: "تواصل معنا", link: "#contact" },
 ]
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false)
     const rightLinks = navLinks.slice(0, 2)
     const leftLinks = navLinks.slice(2)
 
-    const closeMenu = () => setOpen(false)
+    const [open, setOpen] = useState(false)
+
 
     return (
         <>
+            <Menu open={open} setOpen={setOpen} />
             <nav
                 className={classNames(
                     "fixed top-3 z-50 left-1/2 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border border-slate-100 bg-white/30 backdrop-blur-lg md:top-4 md:w-auto"
                 )}
             >
-                <div className="flex items-center justify-between gap-4 px-4 py-2 md:hidden">
-                    <button
-                        type="button"
-                        onClick={() => setOpen((prev) => !prev)}
-                        aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
-                        aria-expanded={open}
-                        className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-xl transition-colors hover:bg-white/50"
-                    >
-                        <span
-                            className={classNames(
-                                "block h-0.5 w-5 rounded-full bg-slate-900 transition-transform",
-                                open && "translate-y-2 rotate-45"
-                            )}
-                        />
-                        <span
-                            className={classNames(
-                                "block h-0.5 w-5 rounded-full bg-slate-900 transition-opacity",
-                                open && "opacity-0"
-                            )}
-                        />
-                        <span
-                            className={classNames(
-                                "block h-0.5 w-5 rounded-full bg-slate-900 transition-transform",
-                                open && "-translate-y-2 -rotate-45"
-                            )}
-                        />
+                <div className="flex items-center justify-between p-3">
+
+                    <button onClick={() => setOpen(!open)}>
+                        <HamburgerMenu weight={"Outline"} size={40} color='#0f4159' />
                     </button>
-
-                    <a
-                        href="/"
-                        className="flex h-12 w-12 items-center justify-center"
-                        aria-label="الرئيسية"
-                    >
-                        <Logo className="h-7 w-7" />
-                    </a>
-
-                    <a
-                        href="#contact"
-                        onClick={closeMenu}
-                        className="rounded-xl bg-[#1B53E2] px-3 py-2 text-sm font-bold text-white"
-                    >
-                        تواصل
-                    </a>
+                    <Logo />
                 </div>
 
+
                 <div className="mx-auto hidden items-center justify-center gap-6 px-6 py-1 md:flex md:gap-8 md:px-8">
-                    {rightLinks.map((link) => (
+                    {rightLinks.map((item) => (
                         <a
-                            key={link.href}
-                            href={link.href}
+                            key={item.link}
+                            href={item.link}
                             className="text-lg text-slate-900 transition-colors hover:text-[#17B6C4]"
                         >
-                            {link.label}
+                            {item.label}
                         </a>
                     ))}
 
@@ -87,49 +56,55 @@ const Navbar = () => {
                         <Logo className="h-8 w-8" />
                     </a>
 
-                    {leftLinks.map((link) => (
+                    {leftLinks.map((item) => (
                         <a
-                            key={link.href}
-                            href={link.href}
+                            key={item.link}
+                            href={item.link}
                             className="text-lg text-slate-900 transition-colors hover:text-[#17B6C4]"
                         >
-                            {link.label}
+                            {item.label}
                         </a>
                     ))}
                 </div>
             </nav>
-
-            {open && (
-                <div
-                    className="fixed inset-0 z-40 bg-[#070C39]/20 backdrop-blur-sm md:hidden"
-                    onClick={closeMenu}
-                    aria-hidden
-                />
-            )}
-
-            <div
-                className={classNames(
-                    "fixed top-18 z-50 left-1/2 w-[calc(100%-1.5rem)] max-w-sm -translate-x-1/2 rounded-2xl border border-slate-100 bg-white/95 p-5 shadow-xl backdrop-blur-lg transition-all duration-300 md:hidden",
-                    open
-                        ? "pointer-events-auto translate-y-0 opacity-100"
-                        : "pointer-events-none -translate-y-2 opacity-0"
-                )}
-            >
-                <nav className="flex flex-col gap-1">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.href}
-                            href={link.href}
-                            onClick={closeMenu}
-                            className="rounded-xl px-4 py-3 text-lg font-medium text-slate-900 transition-colors hover:bg-[#EEF6FC] hover:text-[#1B53E2]"
-                        >
-                            {link.label}
-                        </a>
-                    ))}
-                </nav>
-            </div>
         </>
     )
 }
 
 export default Navbar
+
+
+const Menu = ({ open, setOpen }: { open: boolean, setOpen: (open: boolean) => void }) => {
+
+
+    const socialItems = [
+        { label: 'Twitter', link: 'https://twitter.com' },
+        { label: 'GitHub', link: 'https://github.com' },
+        { label: 'LinkedIn', link: 'https://linkedin.com' }
+    ];
+
+    return (
+        <aside className={classNames("w-screen h-screen ease-in-out max-h-screen overflow-hidden duration-700 transition-all bg-white/50 backdrop-blur-md z-500 flex items-center justify-center fixed top-0 right-0", {
+            "translate-x-full": !open,
+            "translate-x-0": open
+        })}>
+            <div className="w-full h-full absolute top-0 left-0 pointer-events-none" />
+            <button onClick={() => setOpen(false)}>
+                <CloseSquare className="absolute top-6 right-6 text-slate-800" weight={"Broken"} size={40} />
+            </button>
+
+            <ul className="space-y-6">
+                {navLinks?.map((item, index) =>
+                    <li key={item.link}>
+                        <h5>
+                            <a href={item.link} className="text-5xl font-bold">
+                                <AnimatedWord text={item.label} delay={200 * index + 500} />
+                            </a>
+                        </h5>
+                    </li>
+                )}
+            </ul>
+
+        </aside>
+    )
+}

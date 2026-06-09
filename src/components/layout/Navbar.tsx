@@ -23,7 +23,7 @@ const Navbar = () => {
             <Menu open={open} setOpen={setOpen} />
             <nav
                 className={classNames(
-                    "fixed top-3 z-50 left-1/2 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border border-slate-100 bg-white/30 backdrop-blur-md md:top-4 md:w-auto"
+                    "fixed top-3 z-50 left-1/2 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border border-slate-200/50 bg-white/30 backdrop-blur-md md:top-4 md:w-auto"
                 )}
             >
                 <Rows />
@@ -36,12 +36,12 @@ const Navbar = () => {
                 </div>
 
 
-                <div className="mx-auto hidden items-center justify-center gap-2 px-6 py-1 md:flex md:gap-4 md:px-8">
+                <div className="mx-auto hidden mix-blend-hard-light items-center justify-center px-6 py-1 md:flex md:px-8">
                     {rightLinks.map((item) => (
                         <a
                             key={item.link}
                             href={item.link}
-                            className="text-lg py-1 px-3 transition-all text-slate-900 hover:bg-white/80 rounded-full"
+                            className="text-lg   py-1 px-3 transition-all text-slate-900 hover:bg-white/80 rounded-full"
                         >
                             {item.label}
                         </a>
@@ -49,7 +49,7 @@ const Navbar = () => {
 
                     <a
                         href="/"
-                        className="flex h-14 w-14 items-center justify-center"
+                        className="flex h-14 w-14 items-center justify-center mx-4"
                         aria-label="الرئيسية"
                     >
                         <Logo className="h-8 w-8" />
@@ -86,11 +86,11 @@ const Menu = ({ open, setOpen }: { open: boolean, setOpen: (open: boolean) => vo
                 <CloseSquare className="absolute top-6 right-6 text-slate-800" weight={"Broken"} size={32} />
             </button>
 
-            <ul className="space-y-6">
+            <ul className="space-y-6 -translate-y-8">
                 {navLinks?.map((item, index) =>
                     <li key={item.link}>
                         <h5>
-                            <a href={item.link} className="text-5xl font-bold">
+                            <a href={item.link} className="text-5xl font-bold" onClick={() => setOpen(false)}>
                                 <AnimatedWord reset={!open} text={item.label} delay={200 * index + 500} />
                             </a>
                         </h5>

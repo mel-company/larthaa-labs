@@ -23,7 +23,7 @@ const Navbar = () => {
             <Menu open={open} setOpen={setOpen} />
             <nav
                 className={classNames(
-                    "fixed top-3 z-50 left-1/2 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border border-slate-100 bg-white/30 backdrop-blur-md md:top-4 md:w-auto"
+                    "fixed top-3 z-50 left-1/2 mix-blend-hard-light w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border border-slate-100 bg-white/30 backdrop-blur-md md:top-4 md:w-auto"
                 )}
             >
                 <Rows />
@@ -36,12 +36,12 @@ const Navbar = () => {
                 </div>
 
 
-                <div className="mx-auto hidden items-center justify-center gap-6 px-6 py-1 md:flex md:gap-8 md:px-8">
+                <div className="mx-auto hidden items-center justify-center gap-2 px-6 py-1 md:flex md:gap-4 md:px-8">
                     {rightLinks.map((item) => (
                         <a
                             key={item.link}
                             href={item.link}
-                            className="text-lg text-slate-900 transition-colors hover:text-[#17B6C4]"
+                            className="text-lg py-1 px-3 transition-all text-slate-900 hover:bg-white/80 rounded-full"
                         >
                             {item.label}
                         </a>
@@ -59,7 +59,7 @@ const Navbar = () => {
                         <a
                             key={item.link}
                             href={item.link}
-                            className="text-lg text-slate-900 transition-colors hover:text-[#17B6C4]"
+                            className="text-lg py-1 px-3 transition-all text-slate-900 hover:bg-white/80 rounded-full"
                         >
                             {item.label}
                         </a>

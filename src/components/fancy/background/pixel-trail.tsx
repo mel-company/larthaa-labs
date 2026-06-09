@@ -11,6 +11,8 @@ interface PixelTrailProps {
   delay?: number // ms
   className?: string
   pixelClassName?: string
+  columns?: number // fixed number of columns (overrides dynamic calculation)
+  rows?: number // fixed number of rows (overrides dynamic calculation)
 }
 
 const PixelTrail: React.FC<PixelTrailProps> = ({
@@ -19,6 +21,8 @@ const PixelTrail: React.FC<PixelTrailProps> = ({
   delay = 0,
   className,
   pixelClassName,
+  columns: fixedColumns,
+  rows: fixedRows,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const dimensions = useDimensions(containerRef)
@@ -44,12 +48,12 @@ const PixelTrail: React.FC<PixelTrailProps> = ({
   )
 
   const columns = useMemo(
-    () => Math.ceil(dimensions.width / pixelSize),
-    [dimensions.width, pixelSize]
+    () => fixedColumns ?? Math.ceil(dimensions.width / pixelSize),
+    [fixedColumns, dimensions.width, pixelSize]
   )
   const rows = useMemo(
-    () => Math.ceil(dimensions.height / pixelSize),
-    [dimensions.height, pixelSize]
+    () => fixedRows ?? Math.ceil(dimensions.height / pixelSize),
+    [fixedRows, dimensions.height, pixelSize]
   )
 
   return (

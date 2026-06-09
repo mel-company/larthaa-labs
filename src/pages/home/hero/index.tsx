@@ -5,6 +5,8 @@ import { AltArrowLeft, CallChatRounded } from "@solar-icons/react"
 import PixelTrail from "@/components/fancy/background/pixel-trail"
 
 const HeroSection = () => {
+    const isMobile = window.innerWidth < 640
+    const columns = isMobile ? 15 : 24
 
     return (
         <header className="relative flex min-h-dvh w-full items-center justify-center px-4 pt-24 pb-12 sm:px-6">
@@ -13,6 +15,7 @@ const HeroSection = () => {
                 pixelSize={80}
                 fadeDuration={500}
                 pixelClassName="bg-white"
+                columns={columns}
             />
             <BG />
         </header>
@@ -128,10 +131,10 @@ const Rows = () => {
     const isMobile = window.innerWidth < 640
     return (
         <div className="absolute bottom-0 left-0 z-10 flex h-full w-full">
-            {Array.from({ length: isMobile ? 15 : 20 }).map((_, i) => (
+            {Array.from({ length: isMobile ? 15 : 24 }).map((_, i) => (
                 <div
                     key={i}
-                    className="h-full w-64 bg-linear-to-r from-white/80 via-white/0 to-white/0 opacity-10 backdrop-blur-sm"
+                    className="h-full w-full bg-linear-to-r from-white/80 via-white/0 to-white/0 opacity-10 backdrop-blur-sm"
                 />
             ))}
         </div>

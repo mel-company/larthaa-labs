@@ -9,26 +9,34 @@ export const useMenu = ({
     closeOnClickAway = true,
     onMenuOpen,
     onMenuClose
+}: {
+    position?: string;
+    menuButtonColor?: string;
+    openMenuButtonColor?: string;
+    changeMenuColorOnOpen?: boolean;
+    closeOnClickAway?: boolean;
+    onMenuOpen?: () => void;
+    onMenuClose?: () => void;
 }) => {
     const [open, setOpen] = useState(false);
     const openRef = useRef(false);
-    const panelRef = useRef(null);
-    const preLayersRef = useRef(null);
-    const preLayerElsRef = useRef([]);
-    const plusHRef = useRef(null);
-    const plusVRef = useRef(null);
-    const iconRef = useRef(null);
-    const textInnerRef = useRef(null);
-    const textWrapRef = useRef(null);
+    const panelRef = useRef<HTMLElement | null>(null);
+    const preLayersRef = useRef<HTMLElement | null>(null);
+    const preLayerElsRef = useRef<Element[]>([]);
+    const plusHRef = useRef<HTMLElement | null>(null);
+    const plusVRef = useRef<HTMLElement | null>(null);
+    const iconRef = useRef<HTMLElement | null>(null);
+    const textInnerRef = useRef<HTMLElement | null>(null);
+    const textWrapRef = useRef<HTMLElement | null>(null);
 
-    const openTlRef = useRef(null);
-    const closeTweenRef = useRef(null);
-    const spinTweenRef = useRef(null);
-    const textCycleAnimRef = useRef(null);
-    const colorTweenRef = useRef(null);
-    const toggleBtnRef = useRef(null);
+    const openTlRef = useRef<GSAPTimeline | null>(null);
+    const closeTweenRef = useRef<GSAPTween | null>(null);
+    const spinTweenRef = useRef<GSAPTween | null>(null);
+    const textCycleAnimRef = useRef<GSAPTween | null>(null);
+    const colorTweenRef = useRef<GSAPTween | null>(null);
+    const toggleBtnRef = useRef<HTMLElement | null>(null);
     const busyRef = useRef(false);
-    const itemEntranceTweenRef = useRef(null);
+    const itemEntranceTweenRef = useRef<GSAPTween | null>(null);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -40,7 +48,7 @@ export const useMenu = ({
             const textInner = textInnerRef.current;
             if (!panel || !plusH || !plusV || !icon || !textInner) return;
 
-            let preLayers = [];
+            let preLayers: Element[] = [];
             if (preContainer) {
                 preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer'));
             }
@@ -221,7 +229,7 @@ export const useMenu = ({
         });
     }, [position]);
 
-    const animateIcon = useCallback(opening => {
+    const animateIcon = useCallback((opening: boolean) => {
         const icon = iconRef.current;
         if (!icon) return;
         spinTweenRef.current?.kill();
@@ -233,7 +241,7 @@ export const useMenu = ({
     }, []);
 
     const animateColor = useCallback(
-        opening => {
+        (opening: boolean) => {
             const btn = toggleBtnRef.current;
             if (!btn) return;
             colorTweenRef.current?.kill();
@@ -263,7 +271,7 @@ export const useMenu = ({
         }
     }, [changeMenuColorOnOpen, menuButtonColor, openMenuButtonColor]);
 
-    const animateText = useCallback(opening => {
+    const animateText = useCallback((opening: boolean) => {
         const inner = textInnerRef.current;
         if (!inner) return;
         textCycleAnimRef.current?.kill();
@@ -321,12 +329,12 @@ export const useMenu = ({
     React.useEffect(() => {
         if (!closeOnClickAway || !open) return;
 
-        const handleClickOutside = event => {
+        const handleClickOutside = (event: MouseEvent) => {
             if (
                 panelRef.current &&
-                !panelRef.current.contains(event.target) &&
+                !panelRef.current.contains(event.target as Node) &&
                 toggleBtnRef.current &&
-                !toggleBtnRef.current.contains(event.target)
+                !toggleBtnRef.current.contains(event.target as Node)
             ) {
                 closeMenu();
             }

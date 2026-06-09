@@ -104,6 +104,12 @@ body {
   overflow-x: hidden;
 }
 
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -145,7 +151,7 @@ header .linear {
 
 
 .btn {
-  @apply flex h-12 cursor-pointer items-center justify-center gap-2 rounded-2xl px-5 py-3 text-base transition-all sm:h-14 sm:px-6 sm:py-4 sm:text-lg md:h-16 md:text-xl;
+  @apply flex h-14 cursor-pointer items-center justify-center gap-2 rounded-2xl px-5 py-3 text-lg transition-all sm:h-14 sm:px-6 sm:py-4 sm:text-lg md:h-16 md:text-xl;
 }
 
 .btn-primary {
@@ -165,4 +171,40 @@ header .linear {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Custom Scrollbar - Neutral styled */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #414673;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2e4a;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #414673 #f5f5f5;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

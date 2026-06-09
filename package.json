@@ -21,10 +21,12 @@
     "motion": "^12.40.0",
     "ogl": "^1.0.11",
     "react": "^19.2.6",
+    "react-burger-menu": "^3.1.0",
     "react-dom": "^19.2.6",
     "react-smooth-scrolll": "^0.1.2",
     "tailwind-merge": "^3.6.0",
-    "three": "^0.167.1"
+    "three": "^0.167.1",
+    "uuid": "^14.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

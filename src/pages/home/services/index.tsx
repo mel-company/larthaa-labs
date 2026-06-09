@@ -1,5 +1,4 @@
 import { Global, Smartphone, Widget } from "@solar-icons/react"
-import BorderGlow from "@/components/reactbits/BorderGlow"
 import { FadeIn } from "@/components/animation"
 
 const services = [

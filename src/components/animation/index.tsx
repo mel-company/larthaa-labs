@@ -1,17 +1,21 @@
 import { useEffect, useRef, useState } from "react"
 
-export const AnimatedWord = ({ text, delay = 200, className = "" }: { text: string, delay?: number, className?: string }) => {
+export const AnimatedWord = ({ text, delay = 200, className = "", reset = false }: { text: string, delay?: number, className?: string, reset?: boolean }) => {
     const [isVisible, setIsVisible] = useState(false)
     const ref = useRef<HTMLSpanElement>(null)
 
     useEffect(() => {
+        setIsVisible(false)
+    }, [reset])
+
+    useEffect(() => {
         const el = ref.current
-        if (!el) return
+        if (!el || isVisible) return
 
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    const timer = setTimeout(() => setIsVisible(true), delay)
+                    const timer = setTimeout(() => setIsVisible(true), isVisible ? 0 : delay)
                     observer.unobserve(el)
                     return () => clearTimeout(timer)
                 }
@@ -21,7 +25,7 @@ export const AnimatedWord = ({ text, delay = 200, className = "" }: { text: stri
 
         observer.observe(el)
         return () => observer.disconnect()
-    }, [delay])
+    }, [delay, isVisible])
 
     return (
         <span

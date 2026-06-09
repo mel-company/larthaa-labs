@@ -37,8 +37,12 @@ const BG = () => {
 }
 
 const Content = () => {
+    const { x, y } = usePointerPosition()
     return (
-        <div className="relative pointer-events-none z-20 flex w-full max-w-5xl md:max-w-6xl flex-col items-center justify-center gap-4 text-center text-[#070C39] sm:gap-6 md:mt-8 md:gap-8">
+        <div
+            style={{ transform: `translateX(${x * 2}px) translateY(${y * 2}px)` }}
+            className="relative transition-all duration-75 ease-in-out pointer-events-none z-20 flex w-full max-w-5xl md:max-w-6xl flex-col items-center justify-center gap-4 text-center text-[#070C39] sm:gap-6 md:mt-8 md:gap-8"
+        >
             <FadeIn delay={1200} className="z-20 w-full">
                 <Badge />
             </FadeIn>

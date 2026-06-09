@@ -33,7 +33,7 @@ export const BtnPrimary = ({
 
 export const GlassIcon = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="p-px rounded-full bg-linear-to-r from-white/60 via-white/0 to-white/60 aspect-square">
+        <div className="p-px rounded-full bg-linear-to-r from-white/60 via-white/5 to-white/60 aspect-square">
             <div className="rounded-full backdrop-blur-sm p-1 aspect-square">
                 {children}
             </div>

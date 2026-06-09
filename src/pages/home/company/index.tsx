@@ -13,24 +13,20 @@ const Tag = ({
     rotate,
     x,
     delay,
-    mobile,
 }: {
     label: string
     rotate: string
     x: string
     delay: number
-    mobile?: boolean
 }) => (
     <FadeIn delay={delay}>
         <p
             className={
-                mobile
-                    ? "flex items-center justify-center gap-2 rounded-2xl border border-[#93C1F5]/60 bg-[#1B53E2]/5 px-4 py-3 text-lg text-[#070C39] backdrop-blur-sm sm:text-xl"
-                    : `flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl border border-[#93C1F5]/60 bg-[#1B53E2]/5 px-5 py-3 text-4xl text-[#070C39] backdrop-blur-sm ${rotate} ${x}`
+                `flex text-2xl md:text-3xl lg:text-4xl items-center justify-center gap-2 whitespace-nowrap rounded-2xl border border-[#93C1F5]/60 bg-[#1B53E2]/5 px-5 py-3 text-[#070C39] backdrop-blur-sm ${rotate} ${x}`
             }
         >
             {label}{" "}
-            <span className="aspect-square min-h-2.5 min-w-2.5 rounded bg-[#1B53E2]" />
+            <span style={{ animationDelay: `${delay * 4}ms` }} className="aspect-square min-h-2.5 min-w-2.5 rounded animate-pulse bg-[#1B53E2]" />
         </p>
     </FadeIn>
 )
@@ -44,18 +40,14 @@ const CompanySection = () => {
                     <img src="/star-list.svg" alt="" className="h-8 w-auto" />
                 </div>
 
-                <h2 className="text-3xl font-serif font-bold leading-tight text-[#070C39] sm:text-4xl md:text-6xl lg:text-7xl">
+                <h2 className="text-5xl font-serif font-bold leading-tight text-[#070C39] sm:text-4xl md:text-6xl lg:text-7xl">
                     <AnimatedWord text="شركة برمجيات" className="linear" delay={300} />{" "}
                     <AnimatedWord text="متخصصة في" delay={500} />
                 </h2>
 
-                <div className="flex w-full flex-col items-center gap-4 md:hidden">
-                    {tags.map((tag) => (
-                        <Tag key={tag.label} {...tag} mobile />
-                    ))}
-                </div>
 
-                <div dir="ltr" className="relative mx-auto hidden h-72 w-full max-w-5xl md:block">
+
+                <div dir="ltr" className="relative mx-auto h-72 w-full max-w-5xl">
                     <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-3">
                         {tags.map((tag) => (
                             <Tag key={tag.label} {...tag} />

@@ -1,5 +1,6 @@
 import { Global, Smartphone, Widget } from "@solar-icons/react"
 import { FadeIn } from "@/components/animation"
+import SectionTitle from "@/components/ui/section-title"
 
 const services = [
     {
@@ -22,17 +23,6 @@ const services = [
     },
 ]
 
-const Diamonds = () => (
-    <div className="flex items-center gap-2">
-        {[0.3, 0.65, 1].map((opacity) => (
-            <span
-                key={opacity}
-                className="h-2 w-2 rotate-45 bg-[#1B53E2]"
-                style={{ opacity }}
-            />
-        ))}
-    </div>
-)
 
 const ServiceCard = ({
     title,
@@ -80,14 +70,14 @@ const ServiceCard = ({
 
 const ServicesSection = () => {
     return (
-        <section id="services" className="relative overflow-hidden bg-white px-4 pt-12 pb-20 sm:px-6 sm:pb-24">
+        <section id="services" className="relative overflow-hidden bg-white px-4 pt-16 pb-20 sm:px-6 sm:pb-24">
             <div className="pointer-events-none absolute -right-32 top-1/4 h-96 w-96 rounded-full bg-[#03B0FF]/10 blur-3xl" />
             <div className="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#1B53E2]/8 blur-3xl" />
 
             <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-14">
                 <div className="flex flex-col items-center gap-4 text-center">
-                    <h3 className="text-2xl font-bold text-[#070C39] sm:text-3xl">خدماتنا</h3>
-                    <Diamonds />
+                    <SectionTitle text="خدماتنا" />
+                    <img src="/star-list.svg" alt="star-list" />
                     <p className="max-w-2xl text-base text-[#414673] sm:text-xl">
                         نقدم مجموعة من الخدمات البرمجية لتلبية احتياجاتك الرقمية
                     </p>

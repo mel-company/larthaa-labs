@@ -1,7 +1,7 @@
 import { AnimatedWord, FadeIn } from "@/components/animation"
 import { BtnPrimary, GlassIcon } from "@/components/ui/button"
 import { usePointerPosition } from "@/hooks/position"
-import { AltArrowRight } from "@solar-icons/react"
+import { AltArrowLeft, CallChatRounded } from "@solar-icons/react"
 import PixelTrail from "@/components/fancy/background/pixel-trail"
 
 const HeroSection = () => {
@@ -67,19 +67,23 @@ const Content = () => {
                 <div className="mt-2 pointer-events-auto flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-4">
                     <a href="#contact" className="w-full sm:w-auto">
                         <BtnPrimary primary className="w-full sm:w-auto">
+
+                            اطلب إستشــارة
                             <GlassIcon>
-                                <AltArrowRight
+                                <AltArrowLeft
                                     weight={"Outline"}
-                                    size={24}
+                                    size={20}
                                     color="#fff"
                                 />
                             </GlassIcon>
-                            اطلب إستشــارة
                         </BtnPrimary>
                     </a>
                     <a href="#contact" className="w-full sm:w-auto">
                         <BtnPrimary className="w-full sm:w-auto">
-                            أبدأ مشروعــك
+                            <span>تواصل معنـــا</span>
+                            <CallChatRounded weight="BoldDuotone" size={32} />
+
+
                         </BtnPrimary>
                     </a>
                 </div>

@@ -1,19 +1,7 @@
-import { projects, projectCategories, type Project, type ProjectCategory } from "@/data/projects"
+import { projects, type Project, } from "@/data/projects"
 import { AltArrowRight } from "@solar-icons/react"
 import { motion, AnimatePresence } from "motion/react"
-import { useMemo, useState } from "react"
 
-const Diamonds = () => (
-    <div className="flex items-center gap-2">
-        {[0.3, 0.65, 1].map((opacity) => (
-            <span
-                key={opacity}
-                className="h-2 w-2 rotate-45 bg-[#1B53E2]"
-                style={{ opacity }}
-            />
-        ))}
-    </div>
-)
 
 const ProjectPreview = ({
     project,
@@ -151,20 +139,20 @@ const ProjectCard = ({
 )
 
 const ProjectsSection = () => {
-    const [activeCategory, setActiveCategory] =
-        useState<ProjectCategory>("all")
+    // const [activeCategory, setActiveCategory] =
+    //     useState<ProjectCategory>("all")
 
-    const filtered = useMemo(
-        () =>
-            activeCategory === "all"
-                ? projects
-                : projects.filter((p) => p.category === activeCategory),
-        [activeCategory]
-    )
+    // const filtered = useMemo(
+    //     () =>
+    //         activeCategory === "all"
+    //             ? projects
+    //             : projects.filter((p) => p.category === activeCategory),
+    //     [activeCategory]
+    // )
 
-    const sorted = [...filtered].sort(
-        (a, b) => Number(b.featured) - Number(a.featured)
-    )
+    // const sorted = [...filtered].sort(
+    //     (a, b) => Number(b.featured) - Number(a.featured)
+    // )
 
     return (
         <section
@@ -184,7 +172,7 @@ const ProjectsSection = () => {
                 <h2 className="text-3xl font-serif font-bold sm:text-4xl md:text-6xl">
                     <span className="linear">مشاريعنا</span>
                 </h2>
-                <Diamonds />
+                <img src="/star-list.svg" />
                 <p className="max-w-3xl text-base leading-relaxed text-[#414673] sm:text-lg md:text-xl">
                     نبني منتجات رقمية حقيقية تُحدث أثراً تشغيلياً ملموساً — منصات
                     وأنظمة تُدار آلاف العمليات عبرها يومياً، وتمنح الشركات رؤية
@@ -192,30 +180,29 @@ const ProjectsSection = () => {
                 </p>
             </motion.div>
 
-            <div className="relative mx-auto mt-10 flex max-w-6xl flex-wrap justify-center gap-3">
+            {/* <div className="relative mx-auto mt-10 flex max-w-6xl flex-wrap justify-center gap-3">
                 {projectCategories.map((cat) => (
                     <button
                         key={cat.id}
                         type="button"
                         onClick={() => setActiveCategory(cat.id)}
-                        className={`rounded-2xl px-4 py-2 text-sm font-bold transition-all sm:px-6 sm:py-2.5 ${
-                            activeCategory === cat.id
+                        className={`rounded-2xl px-4 py-2 text-sm font-bold transition-all sm:px-6 sm:py-2.5 ${activeCategory === cat.id
                                 ? "bg-[#1B53E2] text-white shadow-lg shadow-[#1B53E2]/25"
                                 : "bg-white text-[#414673] ring-1 ring-[#93C1F5]/50 hover:bg-[#EEF6FC] hover:text-[#1B53E2]"
-                        }`}
+                            }`}
                     >
                         {cat.label}
                     </button>
                 ))}
-            </div>
+            </div> */}
 
             <div className="relative mx-auto mt-14 max-w-6xl">
                 <AnimatePresence mode="popLayout">
                     <motion.div
-                        key={activeCategory}
+                        // key={activeCategory}
                         className="grid gap-6 sm:gap-8 md:grid-cols-2"
                     >
-                        {sorted.map((project, index) => (
+                        {projects.map((project, index) => (
                             <ProjectCard
                                 key={project.id}
                                 project={project}
@@ -226,11 +213,11 @@ const ProjectsSection = () => {
                     </motion.div>
                 </AnimatePresence>
 
-                {filtered.length === 0 && (
+                {/* {filtered.length === 0 && (
                     <p className="py-20 text-center text-lg text-[#414673]">
                         لا توجد مشاريع في هذا التصنيف حالياً
                     </p>
-                )}
+                )} */}
             </div>
         </section>
     )

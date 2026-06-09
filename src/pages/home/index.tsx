@@ -6,10 +6,15 @@ import HeroSection from "./hero"
 import ProjectsSection from "./projects"
 import ServicesSection from "./services"
 import WhySection from "./why"
+import LoadingPage from "@/components/loading-wrapper"
+import { useState } from "react"
 
 const HomePage = () => {
+    const [done, setDone] = useState(false)
+
+
     return (
-        <>
+        <LoadingPage done={done} setDone={setDone}>
             <Navbar />
             <HeroSection />
             <CompanySection />
@@ -18,7 +23,7 @@ const HomePage = () => {
             <WhySection />
             <ContactSection />
             <Footer />
-        </>
+        </LoadingPage>
     )
 }
 

@@ -66,21 +66,23 @@ const Content = () => {
                     الشركات على العمل بذكاء، سرعة، ووضوح.
                 </p>
             </FadeIn>
-            <FadeIn delay={1600}>
-                <div className="mt-2 pointer-events-auto flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-4">
-                    <a href="#contact" className="w-full sm:w-auto">
-                        <BtnPrimary primary className="w-full sm:w-auto">
 
-                            اطلب إستشــارة
-                            <GlassIcon>
-                                <AltArrowLeft
-                                    weight={"Outline"}
-                                    size={20}
-                                    color="#fff"
-                                />
-                            </GlassIcon>
-                        </BtnPrimary>
-                    </a>
+            <div className="mt-2 pointer-events-auto flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-4">
+                <FadeIn delay={1650}> <a href="#contact" className="w-full sm:w-auto">
+                    <BtnPrimary primary className="w-full sm:w-auto">
+
+                        اطلب إستشــارة
+                        <GlassIcon>
+                            <AltArrowLeft
+                                weight={"Outline"}
+                                size={20}
+                                color="#fff"
+                            />
+                        </GlassIcon>
+                    </BtnPrimary>
+                </a>
+                </FadeIn>
+                <FadeIn delay={1700}>
                     <a href="#contact" className="w-full sm:w-auto">
                         <BtnPrimary className="w-full sm:w-auto">
                             <span>تواصل معنـــا</span>
@@ -89,9 +91,8 @@ const Content = () => {
 
                         </BtnPrimary>
                     </a>
-                </div>
-            </FadeIn>
-        </div>
+                </FadeIn> </div>
+        </div >
     )
 }
 

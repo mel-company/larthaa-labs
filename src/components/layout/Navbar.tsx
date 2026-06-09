@@ -23,7 +23,7 @@ const Navbar = () => {
             <Menu open={open} setOpen={setOpen} />
             <nav
                 className={classNames(
-                    "fixed top-3 z-50 left-1/2 mix-blend-hard-light w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border border-slate-100 bg-white/30 backdrop-blur-md md:top-4 md:w-auto"
+                    "fixed top-3 z-50 left-1/2 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border border-slate-100 bg-white/30 backdrop-blur-md md:top-4 md:w-auto"
                 )}
             >
                 <Rows />

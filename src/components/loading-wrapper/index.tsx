@@ -13,7 +13,7 @@ const LoadingPage = ({ done, setDone, children }: { done: boolean, setDone: (don
 
     return (
         <>
-            <div className={classNames('w-screen transition-all duration-1000 ease-in-out flex flex-col h-screen gap-1 items-center justify-center max-h-screen bg-linear-to-b from-black to-blue-950 fixed top-0 left-0 overflow-hidden pointer-events-none z-500', {
+            <div className={classNames('w-screen transition-all duration-1000 ease-in-out flex flex-col h-svh gap-1 items-center justify-center max-h-screen bg-linear-to-b from-black to-blue-950 fixed top-0 left-0 overflow-hidden pointer-events-none z-500', {
                 "-translate-y-full": done,
                 "translate-y-0": !done
             })} >

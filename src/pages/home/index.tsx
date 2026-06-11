@@ -7,10 +7,19 @@ import ProjectsSection from "./projects"
 import ServicesSection from "./services"
 import WhySection from "./why"
 import LoadingPage from "@/components/loading-wrapper"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
+const SESSION_KEY = "home-loading-done"
 
 const HomePage = () => {
-    const [done, setDone] = useState(false)
+    const [done, setDone] = useState(() => {
+        if (typeof window === "undefined") return false
+        return sessionStorage.getItem(SESSION_KEY) === "true"
+    })
+
+    useEffect(() => {
+        sessionStorage.setItem(SESSION_KEY, String(done))
+    }, [done])
 
 
     return (
